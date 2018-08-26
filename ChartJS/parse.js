@@ -41,6 +41,7 @@ findInput();
   }
   if(inputVal){
     alert("Data Found!");
+    inputVal = input.files[0];
     parseData();
   }
 }
