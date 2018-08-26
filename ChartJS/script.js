@@ -1,4 +1,12 @@
 // Bar chart
+/*function waitForElement(){
+    if(typeof scaleVals !== "undefined"){
+        //variable exists, do what you want
+    }
+    else{
+        setTimeout(waitForElement, 250);
+    }
+}*/
 new Chart(document.getElementById("myChart"), {
     type: 'bar',
     data: {
@@ -7,7 +15,7 @@ new Chart(document.getElementById("myChart"), {
         {
           label: "Cubes Scored",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#bad170"],
-          data: [5,3,2,4,3,1]
+          data: [/*5,3,2,4,3,1*/ scaleVals]
         }
       ]
     },
