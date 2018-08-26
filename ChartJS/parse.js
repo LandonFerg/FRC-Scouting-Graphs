@@ -1,11 +1,11 @@
 var input;
 var inputVal;
-
+//TODO Parse data on filechange, Actually use parsed data,
   function findInput()
   {
       input = document.getElementById('csv-file');
       inputVal = document.getElementById('csv-file').files[0];
-      input.oninput = handleFileSelect();
+      input.oninput = function() {handleFileSelect()}
   }
   function parseData()
   {
