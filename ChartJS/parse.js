@@ -1,7 +1,7 @@
 var input;
 var inputVal;
 var titles;
-var scaleVals;
+var scaleVals = [];
 
 //TODO Parse data on filechange, Actually use parsed data,
 
@@ -21,10 +21,10 @@ var scaleVals;
       titles = results.data[0];
       console.log("Titles:", results.data[0])
       var i;
+      console.log("ScaleVals:", scaleVals);
       for (i = 0; i < results.data.length-2; i++) // -2 here to not include title and undefined last value
       {
-        scaleVals = results.data[i+1][2]; // +1 here to disclude title
-        console.log("ScaleVals:", scaleVals);
+        scaleVals.push(results.data[i+1][2]); // +1 here to disclude title
       }
   	}
   });
