@@ -1,40 +1,48 @@
 var input;
+var inputVal;
 
+  function findInput()
+  {
+      input = document.getElementById('csv-file');
+      inputVal = document.getElementById('csv-file').files[0];
+      input.oninput = handleFileSelect();
+  }
   function parseData()
   {
     // Parse CSV string
-  var data = Papa.parse(csv);
+//  var data = Papa.parse(input);
 
-  // Convert back to CSV
-  var csv = Papa.unparse(data);
+//  // Convert back to CSV
+//  var csv = Papa.unparse(input);
 
-  // Parse local CSV file
-  Papa.parse(/*"./ScoutingData.csv"*/ input, {
+
+  // Parse local CSV file ```INCLUDE FILE HERE```
+  Papa.parse(inputVal, {
   	complete: function(results) {
   		console.log("Finished:", results.data);
   	}
   });
 
-  // Stream big file in worker thread
-  Papa.parse(bigFile, {
+  /// Stream big file in worker thread
+  /*Papa.parse(bigFile, {
   	worker: true,
   	step: function(results) {
   		console.log("Row:", results.data);
   	}
-  });
+  });*/
 }
+
+findInput();
 
   function handleFileSelect()
   {
-  input = document.getElementById('csv-file');
-  if (!input) {
+  if (!inputVal) {
     alert("Couldn't Find Input!");
   }
-  if(input){
-    aler("Data Found!")
+  if(inputVal){
+    alert("Data Found!");
+    parseData();
   }
 }
 
-
-parseData();
 handleFileSelect();
