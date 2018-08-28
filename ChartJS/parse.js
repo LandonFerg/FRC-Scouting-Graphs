@@ -33,7 +33,7 @@ var scaleVals = [];
 
 }
 
-findInput();  // What is our input? (probably should change to readInput but idk if that makes sense (im tired))
+findInput();  // What is our input?
 
   function handleFileSelect()
   {

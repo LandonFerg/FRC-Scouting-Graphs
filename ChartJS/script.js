@@ -1,8 +1,7 @@
 // Bar chart
 
 var newData = [5,3,2,4,3,1];  // Placeholder data
-var myChart;
-var csvinput;
+var blank = [1,1,1,1,1,1,1,1,1,1];
 var myChart;
 myChart = new Chart(document.getElementById("myChart"), {
     type: 'bar',
@@ -50,24 +49,16 @@ myChart = new Chart(document.getElementById("myChart"), {
     }
 });
 
-function addData(chart, label, data) {
-    chart = myChart;
-    chart.data.labels = label
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data = scaleVals;
-    });
-    //chart.update();
-}
+function addData(chart, label, data) {  // Update data
 
-/*{
-  csvinput = document.getElementById('csv-file');
-  csvinput.oninput = function() {addData();}
-}
-function addData(chart, label, data) {
-    chart.data.labels = label
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data = scaleVals;
-    });
+    chart = myChart;
+    chart.data.datasets[0].label = label  // Team numbers
+    console.log("data:", chart.data.datasets[0]);
+    chart.data.datasets[0].data = newData;
+    /*chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(blank);
+
+
+    });*/
     chart.update();
 }
-checkFileChange();*/
