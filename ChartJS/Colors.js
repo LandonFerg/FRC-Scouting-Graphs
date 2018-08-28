@@ -2,7 +2,7 @@ Colors = {};
 Colors.names = {
     aqua: "#68dfed",
     //azure: "#f0ffff",
-    beige: "#f5f5dc",
+    beige: "#d2d2a2",
     black: "#000000",
     blue: "#0000ff",
     brown: "#a52a2a",
@@ -31,16 +31,19 @@ Colors.names = {
     lightpink: "#ffb6c1",
     lightyellow: "#ffffe0",
     lime: "#00ff00",
-    magenta: "#ff00ff",
+    magenta: "#bf4cef",
     maroon: "#800000",
     navy: "#000080",
     olive: "#808000",
     orange: "#ffa500",
     pink: "#ffc0cb",
     purple: "#800080",
+    darkpurple:"#330066",
+    grandmachair:"#333366",
     violet: "#800080",
-    red: "#ff0000",
+    red: "#cc0000",
+    lightred: "#d63232",
     silver: "#c0c0c0",
-    white: "#ffffff",
-    yellow: "#ffff00"
+    //white: "#ffffff",
+    yellow: "#f2f20e"
 };

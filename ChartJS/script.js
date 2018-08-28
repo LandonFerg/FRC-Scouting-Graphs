@@ -7,11 +7,12 @@ var myChart;
 myChart = new Chart(document.getElementById("myChart"), {
     type: 'bar',
     data: {
+      fontStyle: "bold",
       labels: [5842, 79, 3276, 6709, 4501, 7304],
       datasets: [
         {
           label: "Cubes Scored",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#bad170"],
+          backgroundColor: [],
 
           data: newData // Set data to new data that is updated in parse.js
         }
@@ -50,19 +51,8 @@ myChart = new Chart(document.getElementById("myChart"), {
     }
 });
 
-function removeData(chart,label,data)
-{
-  chart = myChart;
-  chart.data.labels.pop();  // Remove data
-
-  chart.data.datasets.forEach((dataset) => {
-      dataset.data.pop();
-  });
-  chart.update();
-}
-
 function addData(chart, label, data) {  // Update data
-    removeData();
+
     chart = myChart;
     chart.data.label = label  // Team numbers
     console.log("labels:", chart.data.labels)
@@ -76,14 +66,16 @@ function addData(chart, label, data) {  // Update data
     {
           chart.data.datasets[0].backgroundColor.push(Colors.random());
     }
+    console.log("Colors: ", chart.data.datasets[0].backgroundColor);
+
     chart.update();
 }
 
 Colors.random = function() {
-    var result;
+    var results = [];
     var count = 0;
     for (var prop in this.names)
         if (Math.random() < 1/++count)
-           result = prop;
+           results.push(prop);
     return result;
 };

@@ -46,7 +46,6 @@ findInput();  // What is our input?
       alert("Data Found!");
       inputVal = input.files[0];  // Updates input value to current input
       parseData();  // Parses data if there is data
-
   }
 }
 
