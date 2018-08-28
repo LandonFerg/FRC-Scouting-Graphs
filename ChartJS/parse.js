@@ -1,6 +1,6 @@
 var input;
 var inputVal;
-var titles;
+var teamNumbers = [];
 var scaleVals = [];
 
 //TODO Parse data on filechange, Actually use parsed data,
@@ -23,9 +23,11 @@ var scaleVals = [];
       var i;
       for (i = 0; i < results.data.length-2; i++) // -2 here to not include title and undefined last value
       {
-        scaleVals.push(results.data[i+1][2]); // +1 here to disclude title
+        scaleVals.push(results.data[i+1][2]); // +1 here to disclude title | 2 here indicates the type (Number, Switch, Scale)
+        teamNumbers.push(results.data[i+1][0]);
       }
       console.log("ScaleVals:", scaleVals);
+      console.log("teamNumbers", teamNumbers)
       newData = scaleVals;
       addData();
   	}
@@ -44,6 +46,7 @@ findInput();  // What is our input?
       alert("Data Found!");
       inputVal = input.files[0];  // Updates input value to current input
       parseData();  // Parses data if there is data
+
   }
 }
 

@@ -1,5 +1,6 @@
 // Bar chart
 
+
 var newData = [5,3,2,4,3,1];  // Placeholder data
 var blank = [1,1,1,1,1,1,1,1,1,1];
 var myChart;
@@ -17,7 +18,7 @@ myChart = new Chart(document.getElementById("myChart"), {
       ]
     },
     options: {
-
+      responsive: true,
       legend: { display: false },
       title: {
         display: false,
@@ -49,16 +50,40 @@ myChart = new Chart(document.getElementById("myChart"), {
     }
 });
 
+function removeData(chart,label,data)
+{
+  chart = myChart;
+  chart.data.labels.pop();  // Remove data
+
+  chart.data.datasets.forEach((dataset) => {
+      dataset.data.pop();
+  });
+  chart.update();
+}
+
 function addData(chart, label, data) {  // Update data
-
+    removeData();
     chart = myChart;
-    chart.data.datasets[0].label = label  // Team numbers
-    console.log("data:", chart.data.datasets[0]);
-    chart.data.datasets[0].data = newData;
-    /*chart.data.datasets.forEach((dataset) => {
-        dataset.data.push(blank);
+    chart.data.label = label  // Team numbers
+    console.log("labels:", chart.data.labels)
+    console.log("data:", chart.data);
+
+    chart.data.labels = teamNumbers;
+    chart.data.datasets[0].data = newData;  // add new data
 
 
-    });*/
+    for (i = 0; i < teamNumbers.length; i++)  // Choose random color from list
+    {
+          chart.data.datasets[0].backgroundColor.push(Colors.random());
+    }
     chart.update();
 }
+
+Colors.random = function() {
+    var result;
+    var count = 0;
+    for (var prop in this.names)
+        if (Math.random() < 1/++count)
+           result = prop;
+    return result;
+};
