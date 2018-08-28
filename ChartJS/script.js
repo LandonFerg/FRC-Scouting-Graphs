@@ -2,7 +2,6 @@
 
 
 var newData = [5,3,2,4,3,1];  // Placeholder data
-var blank = [1,1,1,1,1,1,1,1,1,1];
 var myChart;
 myChart = new Chart(document.getElementById("myChart"), {
     type: 'bar',
@@ -19,6 +18,7 @@ myChart = new Chart(document.getElementById("myChart"), {
       ]
     },
     options: {
+      legend: true,
       responsive: true,
       legend: { display: false },
       title: {
@@ -72,10 +72,10 @@ function addData(chart, label, data) {  // Update data
 }
 
 Colors.random = function() {
-    var results = [];
+    var result;
     var count = 0;
     for (var prop in this.names)
         if (Math.random() < 1/++count)
-           results.push(prop);
+           result = prop;
     return result;
 };
